@@ -12,6 +12,8 @@ import {
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MovieService } from './shared/services/movie.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,13 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MovieService
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { 
