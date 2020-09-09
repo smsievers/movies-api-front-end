@@ -1,3 +1,4 @@
+import { Movie } from './../shared/models/movie';
 import { MovieService } from './../shared/services/movie.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  movies: any[] = []
-
+  movies: Movie[] = []
+ 
 
   constructor(
     private movieService: MovieService
@@ -21,8 +22,15 @@ export class HomeComponent implements OnInit {
   }
 
   retrieveAllMovies() {
-    this.movieService.getAllMovies().subscribe(data => {
-      debugger
+    this.movieService.getAllMovies().subscribe(movies => {
+      if (movies) {
+        this.movies = movies
+      } 
+      
+    }, error => {
+      if (error) {
+        console.log(error)
+      }
     })
   }
 }

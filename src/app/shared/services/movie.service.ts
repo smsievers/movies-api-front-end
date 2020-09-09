@@ -1,6 +1,8 @@
 import { environment } from './../../../environments/environment';
 import { HttpClient } from  '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Movie } from '../models/movie';
 
 
 @Injectable({
@@ -14,7 +16,7 @@ export class MovieService {
     this.movieApi = '${environment.apiUrl}api/v1/movies';
    }
   
-   getAllMovies() {
-     return this.http.get<any>('${this.movieApi}/index')
+   getAllMovies(): Observable<Movie[]> {
+     return this.http.get<Movie[]>('${this.movieApi}/index')
    }
 }
