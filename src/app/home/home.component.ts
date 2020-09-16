@@ -22,9 +22,9 @@ export class HomeComponent implements OnInit {
   }
 
   retrieveAllMovies() {
-    this.movieService.getAllMovies().subscribe(movies => {
-      if (movies) {
-        this.movies = movies
+    this.movieService.getAllMovies().subscribe(data => {
+      if (data && data.length) {
+        this.movies = data.map(x => new Movie(x))
       } 
       
     }, error => {

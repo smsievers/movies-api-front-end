@@ -31,6 +31,7 @@ export class Movie {
         updated_at = '',
         user_id = null,
         year = null,
+        ...rest
     }) {
         Object.assign(this, rest)
         this.cast = cast
