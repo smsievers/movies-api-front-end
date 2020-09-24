@@ -14,7 +14,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './shared/services/movie.service';
+import { UserService } from './shared/services/user.service';
+import { LocalStorageService } from './shared/services/local-storage.service';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,17 +26,22 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
-    MovieService
+    MovieService,
+    UserService,
+    LocalStorageService
   ],
 
   bootstrap: [AppComponent]

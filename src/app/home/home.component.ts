@@ -1,6 +1,7 @@
 import { Movie } from './../shared/models/movie';
 import { MovieService } from './../shared/services/movie.service';
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../shared/services/local-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -12,19 +13,22 @@ export class HomeComponent implements OnInit {
  
 
   constructor(
-    private movieService: MovieService
-
+    private movieService: MovieService,
+    private storageService: LocalStorageService
   ) { }
   
 
   ngOnInit(): void {
     this.retrieveAllMovies()
+    this.setMyEmailInStorage()
   }
-
+  setMyEmailInStorage () {
+    this.storageService.setItem('myEmail', 'seth@email.com')
+  }
   retrieveAllMovies() {
-    this.movieService.getAllMovies().subscribe(data => {
-      if (data && data.length) {
-        this.movies = data.map(x => new Movie(x))
+    this.movieService.getAllMovies().subscribe(movies => {
+      if (movies) {
+        this.movies = movies
       } 
       
     }, error => {
