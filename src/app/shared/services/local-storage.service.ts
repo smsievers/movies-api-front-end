@@ -25,4 +25,10 @@ export class LocalStorageService {
       return null
     }
   }
+
+  removeItem(key: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem(key)
+    }
+  }
 }
