@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { SingleMovieComponent } from './movies/single-movie/single-movie.component';
+import { MovieReviewsComponent } from './movies/movie-reviews/movie-reviews.component';
 const routes: Routes = [
   {
     path: '',
@@ -24,6 +26,18 @@ const routes: Routes = [
     component: LoginComponent,
     pathMatch: 'full'
   },
+  {
+    path: 'movies/:id',
+    component: SingleMovieComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'movies/:id/reviews',
+    component: MovieReviewsComponent,
+    pathMatch: 'full'
+  },
+
+  
 ];
 
 
