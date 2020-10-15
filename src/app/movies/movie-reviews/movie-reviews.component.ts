@@ -76,6 +76,6 @@ export class MovieReviewsComponent implements OnInit, OnDestroy {
   }
 
   routeToWriteReview() {
-    debugger
+    this.router.navigate(['reviews/${this.movie.id}/new'])
   }
 }

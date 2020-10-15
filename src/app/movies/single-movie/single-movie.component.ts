@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/shared/models/movie';
 import { MovieService } from 'src/app/shared/services/movie.service';
@@ -21,7 +21,8 @@ export class SingleMovieComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { this.currentUser = this.userService.currentUserValue  }
 
   ngOnInit(): void {
@@ -67,7 +68,7 @@ export class SingleMovieComponent implements OnInit {
   }
 
   routeToWriteReview() {
-    
+    this.router.navigate(['reviews/${this.movie.id}/new'])
   }
 
   editMovie() {

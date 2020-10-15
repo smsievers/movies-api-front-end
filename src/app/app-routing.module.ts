@@ -5,6 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { SingleMovieComponent } from './movies/single-movie/single-movie.component';
 import { MovieReviewsComponent } from './movies/movie-reviews/movie-reviews.component';
+import { AddEditReviewComponent } from './reviews/add-edit-review/add-edit-review.component';
 const routes: Routes = [
   {
     path: '',
@@ -36,6 +37,11 @@ const routes: Routes = [
     component: MovieReviewsComponent,
     pathMatch: 'full'
   },
+  {
+    path: '/reviews/:id/new',
+    component: AddEditReviewComponent,
+    pathMatch: 'full'
+  }
 
   
 ];
